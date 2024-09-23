@@ -5,7 +5,7 @@ function BoardList(){
     const [boardList, setBoardList] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:8080/api/boardList')
+        axios.get('http://localhost:8080/api/boardList'
             .then(res => {
                console.log(res);
                alert('데이터 부르기 성공');
