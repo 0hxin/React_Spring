@@ -8,7 +8,10 @@ function Header(props) {
     };
 
     const historyPageMove = () => {
-        navigate('/history/menu')
+        navigate('/brStory', {state:{menu:'history'}})
+    }
+    const beBetterPageMove = () => {
+        navigate('/brStory', {state:{menu:'better'}})
     }
 
     const [isScrolled, setIsScrolled] = useState(false);
@@ -82,7 +85,7 @@ function Header(props) {
                         <ul className={'subNavList'}>
                             <li className={'subNavMenu'}>브랜드 스토리</li>
                             <li onClick={historyPageMove} className={'subNavMenu'}>이달의 맛 스토리</li>
-                            <li className={'subNavMenu'}>Be Better</li>
+                            <li className={'subNavMenu'} onClick={beBetterPageMove}>Be Better</li>
                         </ul>
                     </nav>
                 </li>

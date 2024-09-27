@@ -146,6 +146,7 @@ section {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    padding: 4rem 0rem;
     gap: 3.2rem;
 }
 .sectionTitle {
@@ -287,20 +288,45 @@ section {
     display: flex;
     align-items: start;
 }
-/* history */
-.historyGrid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-}
-.historyTitle {
+/* brStory */
+.brStoryTitle {
     font-family: 'TTWanjudaedunsancheB';
     font-weight: normal;
     color: #f986bd;
-    font-size: 3.5em;
+    font-size: 5em;
 }
-.historyIntro {
+.brStoryIntro {
     color: #f986bd;
     font-size: 1.2em;
+}
+.brStoryTap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5em;
+}
+.brStoryMenu,
+.historyMenu{
+    padding: 0.3em 0.8em;
+    background-color: white;
+    color:#f986bd;
+    border: 1px solid white;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    cursor: pointer;
+}
+.brStoryMenu.active {
+    background-color: #f986bd;
+    color: white;
+}
+.brStoryTap .brStoryTap:nth-last-child(1) {
+    border-left: 1px solid #f986bd;
+}
+/* brStory - history */
+.historyGrid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
 }
 .historyMenuTab {
     width: 100%;
@@ -310,13 +336,9 @@ section {
 }
 .historyMenu {
     padding: 0.8em 3em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     border: 1px solid #ccc;
     border-radius: 10px 10px 0 0;
     border-bottom: none;
-    cursor: pointer;
     color: #666;
 }
 .historyMenu.active {
@@ -339,4 +361,14 @@ section {
 .historyDetail.active {
     font-weight: bold;
     font-size: 1.5em;
+}
+/* better */
+.betterBtn {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    vertical-align: center;
+    background-color: #fd2a55;
+    color: white;
+    border: none;
 }

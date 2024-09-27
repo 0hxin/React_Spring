@@ -55,7 +55,7 @@ function MainBenefit(props) {
                     ))}
                 </Slider>
             </div>
-            <div className={'mainStoreLayout'}>
+            <div className={'mainStoreLayout mt-5'}>
                 {bottomItems.map((item, index) => (
                     <MainBenefit2Component
                         key={index}

@@ -2,7 +2,7 @@ function MainBrPlay(props) {
     return (
         <section className={'mainPlayPage'}>
             <div className={'sectionTitle'}>
-                <span className={'mainTitle'}>{props.title}</span>
+                <span className={'mainTitle mainTitlePlay'}>{props.title}</span>
                 <span className={'text-muted'}>{props.subTitle}</span>
             </div>
             <div className={'d-flex gap-3'}>
