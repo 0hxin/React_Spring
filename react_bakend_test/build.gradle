@@ -1,0 +1,91 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.3.4'
+    id 'io.spring.dependency-management' version '1.1.6'
+}
+
+group = 'com.example'
+version = '1.0.0'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+// 리액트 프로젝트 포함하기
+
+// 변수 선언 및 프로젝트 폴더 설정
+def frontendDir = "$projectDir/src/main/react_fontend_test"
+
+// 리액트 프로젝트가 복사될 위치
+sourceSets {
+    main {
+        resources {
+            srcDirs = ["$projectDir/src/main/resources"]
+        }
+    }
+}
+
+processResources {
+    dependsOn "copyReactBuildFiles"
+}
+
+// task : gradle 파일에서 실행하는 명령어
+task installReact(type:Exec) {
+    // 작업 폴더 설정
+    workingDir "$frontendDir"
+    inputs.dir "$frontendDir"
+    group = BasePlugin.BUILD_GROUP
+
+    // 리액트 모듈 다운로드
+    if (System.getProperty("os.name").toLowerCase(Locale.ROOT).contains("windows")) {
+        commandLine "npm.cmd", "audit", "fix"
+        commandLine "npm.cmd", "install"
+    }
+    else {
+        commandLine "npm", "audit", "fix"
+        commandLine "npm", "install"
+    }
+}
+
+// 리액트 프로젝트 빌드 함수
+task buildReact(type: Exec) {
+    dependsOn "installReact"
+    workingDir "$frontendDir"
+    inputs.dir "$frontendDir"
+    group = BasePlugin.BUILD_GROUP
+
+    // 리액트 프로젝트 빌드 명령어
+    if (System.getProperty("os.name").toLowerCase(Locale.ROOT).contains("windows")) {
+        commandLine "npm.cmd", "run-script", "build"
+    }
+    else {
+        commandLine "npm", "run-script", "build"
+    }
+}
+
+// 빌드된 리액트 프로젝트 복사
+task copyReactBuildFiles(type:Copy) {
+    dependsOn "buildReact"
+    from "$frontendDir/dist"
+    into "$projectDir/src/main/resources/static"
+}
+
+tasks.bootJar {
+    dependsOn "copyReactBuildFiles"
+}

@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom";
 
-function About(props) {
+function About() {
     return (
         <div className={'container-fluid p-5 vh-100'}>
             <div className={'container h-100 p-3 rounded-4 border d-grid'}>
@@ -10,7 +10,7 @@ function About(props) {
                     </span>
                     <br/>
                     <span className={'fs-6'}>
-                        Home page 에서 About Page 로 이동 {props.id}
+                        Home page 에서 About Page 로 이동
                     </span>
                     <hr/>
                     <div className={'d-flex justify-content-end gap-2 align-items-center'}>
