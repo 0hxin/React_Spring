@@ -14,6 +14,38 @@ function Header(props) {
         navigate('/brStory', {state:{menu:'better'}})
     }
 
+    const allEventPageMove = () => {
+        navigate('/event', {state:{menu:'All'}})
+    }
+    const proEventPageMove = () => {
+        navigate('/event', {state:{menu:'Promotion'}})
+    }
+    const benEventPageMove = () => {
+        navigate('/event', {state:{menu:'Benefit'}})
+    }
+
+    const monthFlavorPageMove = () => {
+        navigate('/menu', {state:{menu:'monthFlavor'}})
+    }
+    const iceCreamPageMove = () => {
+        navigate('/menu', {state:{menu:'iceCream'}})
+    }
+    const freePackPageMove = () => {
+        navigate('/menu', {state:{menu:'prePack'}})
+    }
+    const iceCreamCakePageMove = () => {
+        navigate('/menu', {state:{menu:'iceCreamCake'}})
+    }
+    const desertPageMove = () => {
+        navigate('/menu', {state:{menu:'desert'}})
+    }
+    const drinkPageMove = () => {
+        navigate('/menu', {state:{menu:'drink'}})
+    }
+    const coffeePageMove = () => {
+        navigate('/menu', {state:{menu:'coffee'}})
+    }
+
     const [isScrolled, setIsScrolled] = useState(false);
     // 스크롤 감지
     useEffect(() => {
@@ -38,32 +70,32 @@ function Header(props) {
                     <img src={'../image/logo.png'} className={'navLogo'} onClick={mainPageMove}/>
                 </li>
                 <li className={'navMenu'}>
-                    <a>Menu</a>
+                    <a onClick={monthFlavorPageMove}>Menu</a>
                     <nav className={'subNav'}>
                         <ul className={'subNavList'}>
-                            <li className={'subNavMenu'}>이달의 맛</li>
-                            <li className={'subNavMenu'}>아이스크림</li>
-                            <li className={'subNavMenu'}>프리팩</li>
-                            <li className={'subNavMenu'}>아이스크림 케이크</li>
-                            <li className={'subNavMenu'}>디저트</li>
-                            <li className={'subNavMenu'}>음료</li>
-                            <li className={'subNavMenu'}>커피</li>
+                            <li onClick={monthFlavorPageMove} className={'subNavMenu'}>이달의 맛</li>
+                            <li onClick={iceCreamPageMove} className={'subNavMenu'}>아이스크림</li>
+                            <li onClick={freePackPageMove} className={'subNavMenu'}>프리팩</li>
+                            <li onClick={iceCreamCakePageMove} className={'subNavMenu'}>아이스크림 케이크</li>
+                            <li onClick={desertPageMove} className={'subNavMenu'}>디저트</li>
+                            <li onClick={drinkPageMove} className={'subNavMenu'}>음료</li>
+                            <li onClick={coffeePageMove} className={'subNavMenu'}>커피</li>
                         </ul>
                     </nav>
                 </li>
                 <li className={'navMenu'}>
-                    <a>BR Play</a>
+                    <a onClick={allEventPageMove}>BR Play</a>
                     <nav className={'subNav'}>
                         <div className={'subNav2Layout'}>
                             <div className={'subNav2List'}>
-                                <a className={'subNav2Title'}>
+                                <a onClick={allEventPageMove} className={'subNav2Title'}>
                                     이벤트
                                 </a>
                                 <ul className={'subNavList'}>
-                                    <li className={'subNavMenu'}>
+                                    <li onClick={proEventPageMove} className={'subNavMenu'}>
                                         프로모션
                                     </li>
-                                    <li className={'subNavMenu'}>제휴혜택</li>
+                                    <li onClick={benEventPageMove} className={'subNavMenu'}>제휴혜택</li>
                                 </ul>
                             </div>
                             <div className={'subNav2List'}>

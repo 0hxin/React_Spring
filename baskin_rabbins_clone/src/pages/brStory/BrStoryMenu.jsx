@@ -57,9 +57,10 @@ function BrStoryMenu() {
                         </span>
                     </div>
                     {brStory[isMenu].map((item, index) => (
-                        <div className={'d-flex flex-column align-items-center justify-content-center text-center'} key={index}>
-                            <span className="brStoryTitle">{item.title}</span>
-                            <span className="brStoryIntro"
+                        <div className={'d-flex flex-column align-items-center justify-content-center text-center'}
+                             key={index}>
+                            <span className={'brStoryTitle'}>{item.title}</span>
+                            <span className={'brStoryIntro'}
                                   dangerouslySetInnerHTML={{__html: item.subTitle.replace(/\n/g, "<br />")}}/>
                         </div>
                     ))}
